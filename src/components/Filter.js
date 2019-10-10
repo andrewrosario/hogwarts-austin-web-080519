@@ -14,8 +14,8 @@ class Filter extends Component {
 
     render() { 
         return (
-            <div className="form">
-                <div className="filter">
+            <div className="ui grid container">
+                <div className="ui eight wide column">
                     <select onChange={this.handleSelectChange}>
                         <option value="all">All</option>
                         <option value="greased">Greased</option>
@@ -23,7 +23,7 @@ class Filter extends Component {
                     </select>
                 </div>
 
-                <div className="sort">
+                <div className="ui eight wide column">
                     <select onChange={this.handleSortChange}>
                         <option value="none">None</option>
                         <option value="name">Name</option>

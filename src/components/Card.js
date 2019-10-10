@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 
-
 class Card extends Component {
     state = { 
         showDetails: false
@@ -16,18 +15,20 @@ class Card extends Component {
             showDetails: !this.state.showDetails
         })
     }
-
-
+    // src={this.props.pigPic.images.original.url }
     render() { 
+        console.log(this.props.pigPic) 
+        const pigs = this.props.pigPic
         const {name, weight, specialty, greased} = this.props.hog
-        
         return ( 
-            <div onClick={this.handleClick} className='hog-card'>
-                <h3>{name}</h3>
-                <img alt='pig' src={require(`../hog-imgs/${this.slugify(name.toLowerCase())}.jpg`)}  ></img>
+            <div onClick={this.handleClick} className='hog-card ui card four wide column'>
+                <div className='image'>
+                    <img alt='pig' src={this.props.pigPic}   ></img>
+                </div>
                 <br></br>
+                <h3>{name}</h3>
                 {this.state.showDetails &&
-                <div className="hog-details">
+                <div className="hog-details content">
                     Weight: {weight}
                     <br></br>
                     Specialty: {specialty}
@@ -37,10 +38,11 @@ class Card extends Component {
                 </div>
                 }
                 <br></br>
-
             </div>
          );
     }
 }
  
 export default Card;
+
+// require(`../hog-imgs/${this.slugify(name.toLowerCase())}.jpg`)
